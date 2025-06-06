@@ -50,6 +50,22 @@ namespace ClienteCrud.Infra.Repository
 
         public override void Save(Telefone telefone)
         {
+            if (telefone.Ativo)
+            {
+                var telefonesAtivos = _session.Query<Telefone>()
+                    .Where(t =>
+                            t.cliente.Id == telefone.cliente.Id
+                        && t.Ativo
+                        && t.Id != telefone.Id
+                    ).ToList();
+
+                telefonesAtivos.ForEach(tel =>
+                {
+                    tel.Ativo = false;
+                    _session.Update(tel);
+                });
+            }
+
             base.Save(telefone);
             _redis.KeyDelete($"cliente:{telefone.cliente.Id}:telefone");
         }
