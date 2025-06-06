@@ -1,41 +1,70 @@
 using NHibernate;
 using ClienteCrud.Core.Model;
+using StackExchange.Redis;
+using System.Text.Json;
 
 namespace ClienteCrud.Infra.Repository
 {
-    public class ClienteRepository : IDisposable
+    public class ClienteRepository : RepositoryBase<Cliente>
     {
-        private readonly ISession _session;
-        public ClienteRepository(ISession session) => _session = session;
+        public ClienteRepository(ISession session, IConnectionMultiplexer redisConnection) : base(session, redisConnection, "cliente") { }
 
-        public void Save(Cliente cliente)
+        //Cache específico para telefones do cliente
+        public override void Save(Cliente cliente)
         {
-            using var transaction = _session.BeginTransaction();
-            try
+            base.Save(cliente);
+            _redis.KeyDelete($"cliente:{cliente.Id}:telefone");
+        }
+
+        protected override object GetEntityId(Cliente entity) => entity.Id;
+
+        public IList<Telefone> GetTelefoneByClienteId(int clienteId)
+        {
+            var cacheKey = $"cliente:{clienteId}:telefone";
+            var cachedTelefones = _redis.StringGet(cacheKey);
+
+            if (cachedTelefones.HasValue)
             {
-                _session.SaveOrUpdate(cliente);
-                transaction.Commit();
+                return JsonSerializer.Deserialize<List<Telefone>>(cachedTelefones);
             }
-            catch
+
+            var telefones = _session.Query<Telefone>()
+                .Where(w => w.cliente.Id == clienteId)
+                .ToList();
+
+            _redis.StringSet(
+                cacheKey,
+                JsonSerializer.Serialize(telefones),
+                redisTimeout()
+            );
+
+            return telefones;
+        }
+    }
+
+    public class TelefoneRepository : RepositoryBase<Telefone>
+    {
+        public TelefoneRepository(ISession session, IConnectionMultiplexer redisConnection) : base(session, redisConnection, "telefone") { }
+
+        protected override object GetEntityId(Telefone entity) => entity.Id;
+
+        public override void Save(Telefone telefone)
+        {
+            base.Save(telefone);
+            _redis.KeyDelete($"cliente:{telefone.cliente.Id}:telefone");
+        }
+
+        public override void Delete(object id)
+        {
+            var telefone = GetById(id);
+            if (telefone != null)
             {
-                transaction.Rollback();
-                throw;
+                var clienteId = telefone.cliente.Id;
+                base.Delete(id);
+
+                //Invalida cache de telefones do cliente
+                _redis.KeyDelete($"cliente:{clienteId}:telefone");
             }
-        }
-
-        public Cliente getById(int id)
-        {
-            return _session.Get<Cliente>(id);
-        }
-
-        public IList<Cliente> GetAll()
-        {
-            return _session.Query<Cliente>().ToList();
-        }
-
-        public void Dispose()
-        {
-            _session?.Dispose();
         }
     }
 }

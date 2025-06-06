@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClienteCrud.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b1000a11a30ed38f8cc6b1581e585bd6e96f8fa8")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClienteCrud.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClienteCrud.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

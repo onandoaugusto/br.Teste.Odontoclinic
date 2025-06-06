@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace ClienteCrud.Core.Model
 {
     public abstract class Table

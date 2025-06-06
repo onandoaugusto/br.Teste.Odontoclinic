@@ -1,7 +1,7 @@
 CREATE DATABASE ClienteCrud;
 
 USE ClienteCrud;
-CREATE TABLE Clientes(
+CREATE TABLE Cliente(
      Id         INT PRIMARY KEY IDENTITY
     ,DtCriacao  DATETIME DEFAULT GETDATE()
     ,Ativo      BIT DEFAULT 1
@@ -10,7 +10,7 @@ CREATE TABLE Clientes(
     ,Endereco   NVARCHAR(200)
 );
 
-CREATE TABLE Telefones(
+CREATE TABLE Telefone(
      Id         INT PRIMARY KEY IDENTITY
     ,DtCriacao  DATETIME DEFAULT GETDATE()
     ,Ativo      BIT DEFAULT 1
@@ -18,6 +18,6 @@ CREATE TABLE Telefones(
     ,ClienteId  INT
 );
 
-ALTER TABLE Telefones 
-    ADD CONSTRAINT FK_Telefones_Clientes 
-    FOREIGN KEY (ClienteId) REFERENCES Clientes(Id);
+ALTER TABLE Telefone 
+    ADD CONSTRAINT FK_Telefone_Cliente 
+    FOREIGN KEY (ClienteId) REFERENCES Cliente(Id);

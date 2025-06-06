@@ -7,7 +7,7 @@ namespace ClienteCrud.Infra
     {
         public ClienteMap()
         {
-            Table("Clientes");
+            Table("Cliente");
             Id(x => x.Id).GeneratedBy.Identity();
             Map(x => x.DtCriacao).Not.Nullable();
             Map(x => x.Ativo).Not.Nullable();
@@ -26,7 +26,7 @@ namespace ClienteCrud.Infra
     {
         public TelefoneMap()
         {
-            Table("Telefones");
+            Table("Telefone");
             Id(x => x.Id).GeneratedBy.Identity();
             Map(x => x.DtCriacao).Not.Nullable();
             Map(x => x.Ativo).Not.Nullable();

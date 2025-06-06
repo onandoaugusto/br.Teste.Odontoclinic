@@ -18,6 +18,7 @@ builder.Services.AddScoped(provider =>
 );
 
 builder.Services.AddScoped<ClienteCrud.Infra.Repository.ClienteRepository>();
+builder.Services.AddScoped<ClienteCrud.Infra.Repository.TelefoneRepository>();
 #endregion
 
 // Add services to the container.
@@ -36,5 +37,11 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=cliente}/{action=index}/{id?}"
 );
+
+//Tratamento para CORS
+app.UseCors(builder => builder
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
 
 app.Run();
