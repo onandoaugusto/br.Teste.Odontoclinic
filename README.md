@@ -160,9 +160,9 @@ ClienteCRUD/
 
 ## 📈 Próximos Passos (Roadmap)
 
-1. Concluir testes
+1. Conclusão de testes de caso do front-end;
+2. Validação de endpoints do back-end
 
 ## 📄 Licença
-
-Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+**Cópia proibida;** Projeto para fins de portfólio. Todos os direitos são reservados.
 ``` 
