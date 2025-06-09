@@ -165,4 +165,3 @@ ClienteCRUD/
 
 ## 📄 Licença
 **Cópia proibida;** Projeto para fins de portfólio. Todos os direitos são reservados.
-``` 

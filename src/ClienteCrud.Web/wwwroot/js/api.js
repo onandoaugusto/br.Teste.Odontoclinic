@@ -13,7 +13,7 @@ export const rest = {
             options.body = JSON.stringify(data);
         }
 
-        const response = await fetch('${BASE_URL}${endpoint}', options);
+        const response = await fetch(`${BASE_URL}${endpoint}`, options);
 
         if (!response.ok) {
             throw new Error('Erro na requisição: $response.status}');
@@ -32,20 +32,20 @@ export const rest = {
     },
 
     getCliente(id) {
-        return this.request('/cliente/${id}');
+        return this.request(`/cliente/${id}`);
     },
 
     updateCliente(data) {
-        return this.request('/cliente/${id}', 'PUT', data);
+        return this.request(`/cliente/${id}`, 'PUT', data);
     },
 
     deleteCliente(id) {
-        return this.request('/cliente/${id}', 'DELETE')
+        return this.request(`/cliente/${id}`, 'DELETE')
     },
 
     //Métodos para Telefones
     getTelefones(clienteId) {
-        return this.request('/cliente/${clienteId}/telefones');
+        return this.request(`/cliente/${clienteId}/telefones`);
     },
 
     createTelefone(data) {
@@ -53,6 +53,6 @@ export const rest = {
     },
 
     deleteTelefone(id) {
-        return this.request('/telefone/${id}', 'DELETE');
+        return this.request(`/telefone/${id}`, 'DELETE');
     }
 };

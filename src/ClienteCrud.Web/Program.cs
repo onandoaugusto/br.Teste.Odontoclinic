@@ -23,7 +23,7 @@ if (string.IsNullOrEmpty(connectionString))
 }
 
 builder.Services.AddSingleton(provider =>
-    ClienteCrud.Infra.SessionFactory.GetSessionFactory(connectionString!)
+    ClienteCrud.Infra.SessionFactory.GetSessionFactory(connectionString, redisConnectionString)
 );
 
 builder.Services.AddScoped(provider =>
@@ -57,9 +57,12 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 app.UseRouting();
 
+//Configuração para SPA
+app.MapFallbackToFile("index.html");
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=cliente}/{action=index}/{id?}"
+    pattern: "/api/{controller=cliente}/{action=index}/{id?}"
 );
 
 app.Run();

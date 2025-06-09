@@ -71,14 +71,14 @@ class ClienteApp {
         clientes.array.forEach(cliente => {
             const row = document.createElement('tr');
             row.innerHTML = 
-            '<td>${cliente.id}</td>'
-            '<td>${cliente.nome}</td>'
-            '<td>${cliente.sexo}</td>'
-            '<td>${cliente.endereco}</td>'
-            '<td class="actions">'
-            '   <button data-id="${cliente.id}" class=editBtn>Editar</button>'
-            '   <button data-id="${cliente.id}" class=deleteBtn>Excluir</button>'
-            '</td>';
+            `<td>${cliente.id}</td>`
+            `<td>${cliente.nome}</td>`
+            `<td>${cliente.sexo}</td>`
+            `<td>${cliente.endereco}</td>`
+            `<td class="actions">`
+            `   <button data-id="${cliente.id}" class=editBtn>Editar</button>`
+            `   <button data-id="${cliente.id}" class=deleteBtn>Excluir</button>`
+            `</td>`;
 
             tbody.appendChild(row);
         });
