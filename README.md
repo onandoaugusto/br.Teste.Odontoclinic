@@ -2,7 +2,7 @@
 
 ## 📝 Descrição do Projeto
 
-Sistema completo de cadastro de clientes com operações CRUD (Create, Read, Update, Delete), desenvolvido em .NET 8 com arquitetura MVC, utilizando NHibernate para persistência e Redis para cache distribuído. O projeto inclui:
+Sistema de cadastro de clientes com operações CRUD (Create, Read, Update, Delete), desenvolvido em .NET 8 com arquitetura MVC, utilizando NHibernate para persistência e Redis para cache distribuído. O projeto inclui:
 
 - Cadastro de clientes com telefones
 - Validação de regras de negócio
@@ -68,12 +68,40 @@ ClienteCRUD/
    }
    ```
 
-3. **Execute a aplicação**:
+3. **Rode o script bootstrap**:
+   Copie de `/db/bootstrap.sql`:
+   ```SQL
+   CREATE DATABASE ClienteCrud;
+   
+   USE ClienteCrud;
+   CREATE TABLE Cliente(
+        Id         INT PRIMARY KEY IDENTITY
+       ,DtCriacao  DATETIME DEFAULT GETDATE()
+       ,Ativo      BIT DEFAULT 1
+       ,Nome       NVARCHAR(100) NOT NULL
+       ,Sexo       NVARCHAR(20)
+       ,Endereco   NVARCHAR(200)
+   );
+   
+   CREATE TABLE Telefone(
+        Id         INT PRIMARY KEY IDENTITY
+       ,DtCriacao  DATETIME DEFAULT GETDATE()
+       ,Ativo      BIT DEFAULT 1
+       ,Numero     NVARCHAR(20)
+       ,ClienteId  INT
+   );
+   
+   ALTER TABLE Telefone 
+       ADD CONSTRAINT FK_Telefone_Cliente 
+       FOREIGN KEY (ClienteId) REFERENCES Cliente(Id);
+   ```
+
+4. **Execute a aplicação**:
    ```bash
    dotnet run
    ```
 
-4. **Acesse no navegador**:
+5. **Acesse no navegador**:
    ```
    http://localhost:5000
    ```
