@@ -39,7 +39,6 @@ ClienteCRUD/
 │           ├── css/
 │           ├── js/
 │           └── index.html      # Página principal
-├── docker-compose.yml          # Configuração do Redis
 └── README.md                   # Este arquivo
 ```
 
