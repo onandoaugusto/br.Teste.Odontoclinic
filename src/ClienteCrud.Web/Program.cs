@@ -1,16 +1,29 @@
+using Remotion.Linq.Parsing;
+using StackExchange.Redis;
+
 var builder = WebApplication.CreateBuilder(args);
 
 //Configuração do Redis
-builder.Services.AddStackExchangeRedisCache(options =>
+var redisConnectionString = builder.Configuration.GetConnectionString("Redis");
+if (string.IsNullOrEmpty(redisConnectionString))
 {
-    options.Configuration = builder.Configuration.GetConnectionString("Redis");
-    options.InstanceName = "ClienteCrud_";
-});
+    throw new ApplicationException("ConnectionString da Redis está vazia no arquivo de configurações.");
+}
+
+builder.Services.AddSingleton<IConnectionMultiplexer>(_ =>
+    ConnectionMultiplexer.Connect(redisConnectionString!)
+);
 
 #region NHibernate
 //Configuração do NHibernate
+var connectionString = builder.Configuration.GetConnectionString("dbClienteCrud");
+if (string.IsNullOrEmpty(connectionString))
+{ 
+    throw new ApplicationException("ConnectionString do banco está vazia no arquivo de configurações.");
+}
+
 builder.Services.AddSingleton(provider =>
-    ClienteCrud.Infra.SessionFactory.GetSessionFactory(builder.Configuration.GetConnectionString("dbClienteCrud"))
+    ClienteCrud.Infra.SessionFactory.GetSessionFactory(connectionString!)
 );
 
 builder.Services.AddScoped(provider =>
@@ -21,27 +34,32 @@ builder.Services.AddScoped<ClienteCrud.Infra.Repository.ClienteRepository>();
 builder.Services.AddScoped<ClienteCrud.Infra.Repository.TelefoneRepository>();
 #endregion
 
-// Add services to the container.
-builder.Services.AddRazorPages();
+//Configuração do CORS
+builder.Services.AddCors(options =>
+    options.AddDefaultPolicy(policy =>
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+    )
+);
+
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+app.UseCors();
+
+//Pipeline de requisições http
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error");
+    //app.UseExceptionHandler("/Error");
 }
 app.UseStaticFiles();
-// app.UseRouting();
+app.UseRouting();
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=cliente}/{action=index}/{id?}"
 );
-
-//Tratamento para CORS
-app.UseCors(builder => builder
-    .AllowAnyOrigin()
-    .AllowAnyMethod()
-    .AllowAnyHeader());
 
 app.Run();

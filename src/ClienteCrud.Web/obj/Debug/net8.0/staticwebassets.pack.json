@@ -1,0 +1,49 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Armazenamento\\git\\f\\br.Teste.Odontoclinic\\src\\ClienteCrud.Web\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ClienteCrud.Web.bundle.scp.css",
+      "PackagePath": "staticwebassets\\ClienteCrud.Web.of79w3kdpe.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Armazenamento\\git\\f\\br.Teste.Odontoclinic\\src\\ClienteCrud.Web\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "D:\\Armazenamento\\git\\f\\br.Teste.Odontoclinic\\src\\ClienteCrud.Web\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Armazenamento\\git\\f\\br.Teste.Odontoclinic\\src\\ClienteCrud.Web\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "D:\\Armazenamento\\git\\f\\br.Teste.Odontoclinic\\src\\ClienteCrud.Web\\wwwroot\\js\\api.js",
+      "PackagePath": "staticwebassets\\js\\api.js"
+    },
+    {
+      "Id": "D:\\Armazenamento\\git\\f\\br.Teste.Odontoclinic\\src\\ClienteCrud.Web\\wwwroot\\js\\app.js",
+      "PackagePath": "staticwebassets\\js\\app.js"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ClienteCrud.Web.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ClienteCrud.Web.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.ClienteCrud.Web.props",
+      "PackagePath": "build\\ClienteCrud.Web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.ClienteCrud.Web.props",
+      "PackagePath": "buildMultiTargeting\\ClienteCrud.Web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.ClienteCrud.Web.props",
+      "PackagePath": "buildTransitive\\ClienteCrud.Web.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

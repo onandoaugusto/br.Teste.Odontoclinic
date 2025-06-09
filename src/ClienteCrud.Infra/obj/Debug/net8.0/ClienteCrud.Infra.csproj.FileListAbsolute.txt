@@ -1,0 +1,16 @@
+D:\Armazenamento\git\f\br.Teste.Odontoclinic\src\ClienteCrud.Infra\bin\Debug\net8.0\ClienteCrud.Infra.deps.json
+D:\Armazenamento\git\f\br.Teste.Odontoclinic\src\ClienteCrud.Infra\bin\Debug\net8.0\ClienteCrud.Infra.dll
+D:\Armazenamento\git\f\br.Teste.Odontoclinic\src\ClienteCrud.Infra\bin\Debug\net8.0\ClienteCrud.Infra.pdb
+D:\Armazenamento\git\f\br.Teste.Odontoclinic\src\ClienteCrud.Infra\bin\Debug\net8.0\ClienteCrud.Core.dll
+D:\Armazenamento\git\f\br.Teste.Odontoclinic\src\ClienteCrud.Infra\bin\Debug\net8.0\ClienteCrud.Core.pdb
+D:\Armazenamento\git\f\br.Teste.Odontoclinic\src\ClienteCrud.Infra\obj\Debug\net8.0\ClienteCrud.Infra.csproj.AssemblyReference.cache
+D:\Armazenamento\git\f\br.Teste.Odontoclinic\src\ClienteCrud.Infra\obj\Debug\net8.0\ClienteCrud.Infra.GeneratedMSBuildEditorConfig.editorconfig
+D:\Armazenamento\git\f\br.Teste.Odontoclinic\src\ClienteCrud.Infra\obj\Debug\net8.0\ClienteCrud.Infra.AssemblyInfoInputs.cache
+D:\Armazenamento\git\f\br.Teste.Odontoclinic\src\ClienteCrud.Infra\obj\Debug\net8.0\ClienteCrud.Infra.AssemblyInfo.cs
+D:\Armazenamento\git\f\br.Teste.Odontoclinic\src\ClienteCrud.Infra\obj\Debug\net8.0\ClienteCrud.Infra.csproj.CoreCompileInputs.cache
+D:\Armazenamento\git\f\br.Teste.Odontoclinic\src\ClienteCrud.Infra\obj\Debug\net8.0\ClienteCrud.Infra.sourcelink.json
+D:\Armazenamento\git\f\br.Teste.Odontoclinic\src\ClienteCrud.Infra\obj\Debug\net8.0\ClienteC.4BD6961F.Up2Date
+D:\Armazenamento\git\f\br.Teste.Odontoclinic\src\ClienteCrud.Infra\obj\Debug\net8.0\ClienteCrud.Infra.dll
+D:\Armazenamento\git\f\br.Teste.Odontoclinic\src\ClienteCrud.Infra\obj\Debug\net8.0\refint\ClienteCrud.Infra.dll
+D:\Armazenamento\git\f\br.Teste.Odontoclinic\src\ClienteCrud.Infra\obj\Debug\net8.0\ClienteCrud.Infra.pdb
+D:\Armazenamento\git\f\br.Teste.Odontoclinic\src\ClienteCrud.Infra\obj\Debug\net8.0\ref\ClienteCrud.Infra.dll
